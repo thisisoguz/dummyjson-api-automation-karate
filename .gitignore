@@ -1,0 +1,123 @@
+# =========================
+# Build output
+# =========================
+target/
+out/
+build/
+
+# =========================
+# Maven
+# =========================
+.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+
+# =========================
+# IDE / Editor
+# =========================
+.idea/
+*.iml
+*.ipr
+*.iws
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+.classpath
+.project
+.settings/
+.factorypath
+
+# =========================
+# OS / File system
+# =========================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+*.out
+*.err
+
+# =========================
+# Test reports / generated reports
+# =========================
+karate-reports/
+surefire-reports/
+test-output/
+reports/
+
+# Maven/Karate generated reports usually live under target,
+# but these patterns are kept as an extra safeguard.
+**/karate-reports/
+**/surefire-reports/
+
+# =========================
+# Temporary / cache files
+# =========================
+tmp/
+temp/
+.cache/
+*.tmp
+*.swp
+*.swo
+*~
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.*
+*.env
+application-local.properties
+application-dev.properties
+application-qa.properties
+application-prod.properties
+
+# Secrets / keys / certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+secrets/
+credentials/
+*.crt
+*.csr
+
+# =========================
+# Local test data / personal overrides
+# =========================
+data/local/
+data/private/
+src/test/resources/config-local.js
+src/test/resources/karate-config-local.js
+src/test/resources/*.local.json
+src/test/resources/*.secret.json
+
+# =========================
+# Archives
+# =========================
+*.zip
+*.tar
+*.gz
+*.7z
+*.rar
+
+# =========================
+# Dependency / package leftovers
+# =========================
+node_modules/
+
+# =========================
+# Misc
+# =========================
+coverage/
