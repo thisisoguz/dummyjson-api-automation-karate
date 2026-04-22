@@ -33,3 +33,10 @@ Feature: Products smoke tests
 
     And match response.limit == 10
     And match response.products == '#[10]'
+
+  Scenario: All products should have expected structure
+    Given path 'products'
+    When method get
+    Then status 200
+
+    And match each response.products contains { id: '#number', title: '#string', price: '#number' }  
