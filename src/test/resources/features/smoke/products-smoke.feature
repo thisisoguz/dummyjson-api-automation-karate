@@ -61,3 +61,26 @@ Feature: Products smoke tests
     # validation
     And assert firstPage != secondPage
     And match firstPage[0].id != secondPage[0].id
+
+  Scenario: Products pagination should return correct offset-based data
+    # first request: get first 10 products
+    Given path 'products'
+    And param limit = 10
+    And param skip = 0
+    When method get
+    Then status 200
+    * def firstResponse = response
+
+    # second request: get next 5 products after skipping 5 
+    Given path 'products'
+    And param limit = 5
+    And param skip = 5
+    When method get 
+    Then status 200
+    * def secondResponse = response
+
+    # validations
+    And match firstResponse.products == '#[10]'
+    And match secondResponse.products == '#[5]'
+    And match secondResponse.products[0].id == firstResponse.products[5].id
+    And match secondResponse.products[1].id == firstResponse.products[6].id
