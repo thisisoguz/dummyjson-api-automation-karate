@@ -40,3 +40,24 @@ Feature: Products smoke tests
     Then status 200
 
     And match each response.products contains { id: '#number', title: '#string', price: '#number' }  
+
+  Scenario: Products pagination should return different data when skip changes
+    # first page
+    Given path 'products'
+    And param limit = 5
+    And param skip = 0
+    When method get 
+    Then status 200
+    * def firstPage = response.products
+
+    # second page
+    Given path 'products'
+    And param limit = 5
+    And param skip = 5
+    When method get
+    Then status 200
+    * def secondPage = response.products
+
+    # validation
+    And assert firstPage != secondPage
+    And match firstPage[0].id != secondPage[0].id
